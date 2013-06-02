@@ -83,7 +83,7 @@ public class Solver {
 
     private Optional<Map<String, List<Character>>> search(Optional<Map<String, List<Character>>> results) {
         if (!results.isPresent()) {
-            return Optional.absent(); // something failed earlier
+            return absent(); // something failed earlier
         }
         Map<String, List<Character>> solution = results.get();
         if (all(solution.values(), haveOnlyASingleItem())) {
@@ -102,7 +102,7 @@ public class Solver {
                 return result;
             }
         }
-        return Optional.absent(); //This is not a complete solution 
+        return absent(); //This is not a complete solution 
     }
 
     private String squareWithFewestPossibilities(Map<String, List<Character>> answerGrid) {
