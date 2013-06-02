@@ -106,20 +106,20 @@ public class Solver {
     }
 
     private String squareWithFewestPossibilities(Map<String, List<Character>> answerGrid) {
-        Entry<String, List<Character>> min = null;
-        for (Entry<String, List<Character>> answerSquare : answerGrid.entrySet()) {
-            if (answerSquare.getValue().size() == 1) {
+        Entry<String, List<Character>> squareWithFewestPossibleAnswers = null;
+        for (Entry<String, List<Character>> square : answerGrid.entrySet()) {
+            if (square.getValue().size() == 1) {
                 continue; // already solved
             }
-            if (min == null) {
-                min = answerSquare;
+            if (squareWithFewestPossibleAnswers == null) {
+                squareWithFewestPossibleAnswers = square;
                 break;
             }
-            if (min.getValue().size() > answerSquare.getValue().size()) {
-                min = answerSquare;
+            if (squareWithFewestPossibleAnswers.getValue().size() > square.getValue().size()) {
+                squareWithFewestPossibleAnswers = square;
             }
         }
-        return min.getKey();
+        return squareWithFewestPossibleAnswers.getKey();
     }
 
 }
